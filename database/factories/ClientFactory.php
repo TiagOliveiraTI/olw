@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class ClientFactory extends Factory
     {
         return [
             'address_id' => fake('pt_BR')->numberBetween(1, 10),
-            'user_id' => UserFactory::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

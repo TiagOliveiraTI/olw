@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sellers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('companies_id')->constrained();
+            $table->foreignId('company_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
             $table->softDeletes();

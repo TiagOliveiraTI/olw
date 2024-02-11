@@ -15,7 +15,7 @@ return new class extends Migration
         $query = DB::table('sales as s')
             ->join('sellers as sl', 'sl.id', '=', 's.seller_id')
             ->join('clients as cl', 'cl.id', '=', 's.client_id')
-            ->join('companies as cp', 'cp.id', '=', 'sl.companies_id')
+            ->join('companies as cp', 'cp.id', '=', 'sl.company_id')
             ->join('addresses as ad', 'ad.id', '=', 'cl.address_id')
             ->join('users as us', 'us.id', '=', 'sl.user_id')
             ->join('users as uc', 'uc.id', '=', 'cl.user_id')
@@ -35,7 +35,7 @@ return new class extends Migration
             ->toSql()
         ;
         
-        DB::statement("CREATE MATERIALIZED VIEW sales_commision_view AS $query");
+        DB::statement("CREATE MATERIALIZED VIEW sales_comission_view AS $query");
     }
 
     /**
@@ -43,6 +43,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statement('DROP MATERIALIZED VIEW sales_commision_view');
+        DB::statement('DROP MATERIALIZED VIEW sales_comission_view');
     }
 };

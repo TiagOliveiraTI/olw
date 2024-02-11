@@ -18,7 +18,7 @@ class SellerFactory extends Factory
     {
         return [
             'company_id' => fake('pt_BR')->numberBetween(1, 4),
-            'user_id' => UserFactory::factory(),
+            'user_id' => fake('pt_BR')->numberBetween(1, 100),
         ];
     }
 }
